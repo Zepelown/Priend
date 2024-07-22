@@ -1,9 +1,8 @@
-package com.example.priend.record.audio
+package com.example.priend.record.domain.audio
 
 import android.content.Context
 import android.net.Uri
 import android.util.Log
-import java.io.FileDescriptor
 
 class AudioManager(
     private val appContext : Context
