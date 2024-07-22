@@ -1,6 +1,8 @@
 plugins {
     alias(libs.plugins.androidApplication)
     alias(libs.plugins.jetbrainsKotlinAndroid)
+    id("kotlin-kapt")
+    id("com.google.dagger.hilt.android")
 }
 
 android {
@@ -50,6 +52,17 @@ dependencies {
 
     implementation("androidx.lifecycle:lifecycle-viewmodel-android:2.8.3")
     implementation("androidx.activity:activity-ktx:1.9.0")
+    implementation("androidx.fragment:fragment-ktx:1.8.1")
+
+    implementation ("com.squareup.retrofit2:retrofit:2.8.0")
+    implementation ("com.squareup.retrofit2:converter-gson:2.6.0")
+    implementation("com.squareup.okhttp3:logging-interceptor:4.11.0")
+
+    implementation ("com.google.dagger:hilt-android:2.51.1")
+    kapt("com.google.dagger:hilt-compiler:2.51.1")
+
+    implementation ("com.arthenica:mobile-ffmpeg-full:4.4")
+
 
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
