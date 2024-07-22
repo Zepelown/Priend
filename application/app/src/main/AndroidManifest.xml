@@ -23,7 +23,7 @@
         android:theme="@style/Theme.Priend"
         tools:targetApi="31">
         <activity
-            android:name=".stt.SttTestActivity"
+            android:name=".stt.view.SttTestActivity"
             android:exported="false" />
         <activity
             android:name=".record.view.RecordActivity"
