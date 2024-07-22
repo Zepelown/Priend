@@ -18,7 +18,7 @@ import java.io.IOException;
 @RequestMapping("stt")
 public class SttController {
     private SttService sttService;
-    public SttController(SttService sttService){
+    public SttController(SttauService sttService){
         this.sttService = sttService;
     }
 
@@ -26,8 +26,6 @@ public class SttController {
     public ResponseEntity<String> handleAudioMessage(@RequestParam("audioFile") MultipartFile audioFile) throws IOException {
 
         String transcribe = sttService.transcribe(audioFile);
-
-        System.out.println("transcribe"+ transcribe);
 
         return ResponseEntity.ok().body(transcribe);
     }

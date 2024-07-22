@@ -4,7 +4,7 @@ import android.content.ContentValues
 import android.content.Context
 import android.net.Uri
 import android.provider.MediaStore
-import com.example.priend.common.StringConstant
+import com.example.priend.common.Constants
 import java.io.IOException
 import java.text.SimpleDateFormat
 import java.util.Date
@@ -19,12 +19,12 @@ class AudioFileManager(
 
     fun createFileUri(): Uri {
         val timeStamp = convertDateToFormattedDate(Date())
-        val fileName = StringConstant.OUTPUT_AUDIO_FILE_PREFIX +"$timeStamp"
+        val fileName = Constants.OUTPUT_AUDIO_FILE_PREFIX +"$timeStamp"
 
         val values = ContentValues().apply {
             put(MediaStore.MediaColumns.DISPLAY_NAME, fileName)
             put(MediaStore.MediaColumns.MIME_TYPE, "audio/mp4")
-            put(MediaStore.MediaColumns.RELATIVE_PATH, StringConstant.OUTPUT_AUDIO_FILE_PATH)
+            put(MediaStore.MediaColumns.RELATIVE_PATH, Constants.OUTPUT_AUDIO_FILE_PATH)
         }
 
         return appContext.contentResolver.insert(MediaStore.Audio.Media.EXTERNAL_CONTENT_URI, values)
