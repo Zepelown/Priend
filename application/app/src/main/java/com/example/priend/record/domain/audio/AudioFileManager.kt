@@ -23,7 +23,7 @@ class AudioFileManager(
 
         val values = ContentValues().apply {
             put(MediaStore.MediaColumns.DISPLAY_NAME, fileName)
-            put(MediaStore.MediaColumns.MIME_TYPE, "audio/mp4")
+            put(MediaStore.MediaColumns.MIME_TYPE, "audio/amr")
             put(MediaStore.MediaColumns.RELATIVE_PATH, Constants.OUTPUT_AUDIO_FILE_PATH)
         }
 

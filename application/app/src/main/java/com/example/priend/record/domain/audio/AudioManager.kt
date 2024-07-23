@@ -35,7 +35,7 @@ class AudioManager(
                         fileUriString = currentUri.toString()
                     )
                 )
-//                audioConverter.convertToWav(outputFilePath)
+              audioConverter.convertToWav(outputFilePath)
                 Log.d("record", "녹음 중지")
             }
         }

@@ -43,12 +43,12 @@ object NetworkModule {
 
     @Provides
     @Singleton
-    fun provideSttService(retrofit: Retrofit): SttService {
+    fun provideApiService(retrofit: Retrofit): SttService {
         return retrofit.create(SttService::class.java)
     }
 
     @Singleton
     @Provides
-    fun provideSttRepository(sttService: SttService)= SttRepository(sttService)
+    fun provideSttRepository(sttService: SttService) = SttRepository(sttService)
 
 }

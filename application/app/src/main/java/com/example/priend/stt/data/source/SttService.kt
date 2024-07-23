@@ -1,7 +1,7 @@
 package com.example.priend.stt.data.source
 
-import com.example.priend.stt.data.dto.AudioTranscriptDto
 import okhttp3.MultipartBody
+import okhttp3.ResponseBody
 import retrofit2.Call
 import retrofit2.Response
 import retrofit2.http.Multipart
