@@ -1,6 +1,7 @@
 package com.example.priend.record.view
 
 import android.Manifest
+import android.content.Intent
 import android.content.pm.PackageManager
 import android.os.Bundle
 import androidx.activity.viewModels
@@ -8,6 +9,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import com.example.priend.databinding.ActivityRecordBinding
+import com.example.priend.stt.view.SttTestActivity
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -33,6 +35,12 @@ class RecordActivity : AppCompatActivity() {
 
             endRecordButton.setOnClickListener {
                 recordViewModel.stopRecording()
+            }
+
+            moveSttButton.setOnClickListener {
+                val intent = Intent(applicationContext, SttTestActivity::class.java)
+                intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+                applicationContext.startActivity(intent)
             }
         }
 

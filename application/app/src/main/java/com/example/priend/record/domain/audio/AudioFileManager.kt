@@ -17,8 +17,8 @@ class AudioFileManager(
     fun getFileDescriptor(uri: Uri) = appContext.contentResolver.openFileDescriptor(uri, "w")?.fileDescriptor
         ?: throw IOException("Cannot open file descriptor for URI: $uri")
 
-    fun createFileUri(): Uri {
-        val timeStamp = convertDateToFormattedDate(Date())
+    fun createFileUri(date: Date): Uri {
+        val timeStamp = convertDateToFormattedDate(date)
         val fileName = Constants.OUTPUT_AUDIO_FILE_PREFIX +"$timeStamp"
 
         val values = ContentValues().apply {

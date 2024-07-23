@@ -22,4 +22,10 @@
         android:layout_gravity="center"
         android:text="녹음 중지"/>
 
+    <Button
+        android:id="@+id/move_stt_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="stt 테스팅 페이지로"/>
+
 </LinearLayout>
