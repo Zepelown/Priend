@@ -8,6 +8,7 @@
     tools:context=".stt.view.SttTestActivity">
 
     <TextView
+        android:id="@+id/transcript_textview"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:gravity="center"

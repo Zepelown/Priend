@@ -3,6 +3,8 @@ package com.example.priend.stt.view
 import android.os.Bundle
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.Observer
+import androidx.lifecycle.lifecycleScope
 import com.example.priend.R
 import com.example.priend.common.Constants
 import com.example.priend.databinding.ActivitySttTestBinding
@@ -24,7 +26,12 @@ class SttTestActivity : AppCompatActivity() {
 
         _binding = ActivitySttTestBinding.inflate(layoutInflater)
 
-        sttViewModel.getAudioTranscript(Constants.OUTPUT_AUDIO_FILE_PATH,Constants.OUTPUT_AUDIO_FILE_PREFIX+ "20240723_075930.amr")
+        sttViewModel.result.observe(this, Observer {
+            binding.transcriptTextview.text = it
+        })
+        binding.transcriptTextview
+//        sttViewModel.getAudioTranscript()
+        sttViewModel.sendTestAudio()
 
         setContentView(binding.root)
     }

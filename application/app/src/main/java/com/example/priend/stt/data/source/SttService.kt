@@ -1,5 +1,6 @@
 package com.example.priend.stt.data.source
 
+import com.example.priend.stt.data.response.AudioTranscriptResponse
 import okhttp3.MultipartBody
 import okhttp3.ResponseBody
 import retrofit2.Call
@@ -11,5 +12,5 @@ import retrofit2.http.Part
 interface SttService {
     @Multipart
     @POST("stt/audio")
-    suspend fun postSpeechRecognitionResult(@Part audioFile : MultipartBody.Part ) : Response<String>
+    suspend fun postSpeechRecognitionResult(@Part audioFile : MultipartBody.Part ) : Response<AudioTranscriptResponse>
 }

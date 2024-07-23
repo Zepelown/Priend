@@ -2,6 +2,7 @@ package com.server.priend.stt.domain;
 
 import com.google.cloud.speech.v1.*;
 import com.google.protobuf.ByteString;
+import com.server.priend.stt.payload.response.post.SttResponse;
 import lombok.RequiredArgsConstructor;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -10,17 +11,17 @@ import org.springframework.web.multipart.MultipartFile;
 
 import java.io.IOException;
 import java.util.List;
+import java.util.NoSuchElementException;
 
 @RequiredArgsConstructor
 @Service
 public class SttService {
     private final Logger logger = LoggerFactory.getLogger(SttService.class);
 
-    public String transcribe(MultipartFile audioFile) throws IOException {
+    public SttResponse transcribe(MultipartFile audioFile) throws IOException {
         if (audioFile.isEmpty()) {
             throw new IOException("Required part 'audioFile' is not present.");
         }
-
         // 오디오 파일을 byte array로 decode
         byte[] audioBytes = audioFile.getBytes();
 
@@ -35,8 +36,8 @@ public class SttService {
             // 설정 객체 생성
             RecognitionConfig recognitionConfig =
                     RecognitionConfig.newBuilder()
-                            .setEncoding(RecognitionConfig.AudioEncoding.FLAC)
-                            .setSampleRateHertz(24000)
+                            .setEncoding(RecognitionConfig.AudioEncoding.AMR)
+                            .setSampleRateHertz(8000)
                             .setLanguageCode("ko-KR")
                             .build();
 
@@ -49,10 +50,9 @@ public class SttService {
                 SpeechRecognitionResult result = results.get(0);
                 String transcript = result.getAlternatives(0).getTranscript();
                 logger.info("Transcription result: {}", transcript);
-                return transcript;
+                return new SttResponse(transcript);
             } else {
-                logger.error("No transcription result found");
-                return "";
+                throw new NoSuchElementException("No transcription result found");
             }
         } catch (Exception e) {
             throw new RuntimeException(e);
