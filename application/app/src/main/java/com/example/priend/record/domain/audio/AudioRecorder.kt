@@ -40,7 +40,7 @@ class AudioRecorder {
     private fun setRecorder(fileDescriptor: FileDescriptor){
         recorder = MediaRecorder().apply {
             setAudioSource(MediaRecorder.AudioSource.MIC)
-            setOutputFormat(MediaRecorder.OutputFormat.THREE_GPP)
+            setOutputFormat(MediaRecorder.OutputFormat.AMR_NB)
             setAudioEncoder(MediaRecorder.AudioEncoder.DEFAULT)
             setOutputFile(fileDescriptor)
         }

@@ -23,7 +23,7 @@ class AudioManager(
             val outputFilePath = audioFileManager.getFilePathFromUri(it)
             outputFilePath?.let {
                 audioRecorder.stop()
-                audioConverter.convertToWav(outputFilePath)
+//                audioConverter.convertToWav(outputFilePath)
                 Log.d("record", "녹음 중지")
             }
         }
