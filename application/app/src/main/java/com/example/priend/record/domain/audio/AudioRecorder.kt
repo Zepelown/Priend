@@ -1,4 +1,4 @@
-package com.example.priend.record.audio
+package com.example.priend.record.domain.audio
 
 import android.media.MediaRecorder
 import android.util.Log

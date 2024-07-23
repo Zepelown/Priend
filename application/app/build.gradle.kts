@@ -54,7 +54,8 @@ dependencies {
     implementation("androidx.activity:activity-ktx:1.9.0")
     implementation("androidx.fragment:fragment-ktx:1.8.1")
 
-    implementation ("com.squareup.retrofit2:retrofit:2.8.0")
+    implementation ("com.squareup.retrofit2:retrofit:2.9.0")
+    implementation ("com.squareup.okhttp3:okhttp:4.10.0")
     implementation ("com.squareup.retrofit2:converter-gson:2.6.0")
     implementation("com.squareup.okhttp3:logging-interceptor:4.11.0")
 
@@ -62,6 +63,13 @@ dependencies {
     kapt("com.google.dagger:hilt-compiler:2.51.1")
 
     implementation ("com.arthenica:mobile-ffmpeg-full:4.4")
+
+    var room_version = "2.6.1"
+
+    implementation("androidx.room:room-runtime:$room_version")
+    implementation("androidx.room:room-ktx:$room_version")
+    kapt("androidx.room:room-compiler:$room_version")
+    implementation ("androidx.room:room-ktx:2.5.0")
 
 
     testImplementation(libs.junit)

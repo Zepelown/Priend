@@ -5,14 +5,19 @@ import android.net.Uri
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.example.priend.record.audio.AudioManager
+import androidx.lifecycle.viewModelScope
+import com.example.priend.common.db.record.AudioRecordEntity
+import com.example.priend.common.db.record.AudioRecordRepository
+import com.example.priend.record.domain.audio.AudioManager
 import dagger.hilt.android.lifecycle.HiltViewModel
 import dagger.hilt.android.qualifiers.ApplicationContext
+import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
 class RecordViewModel @Inject constructor(
-    @ApplicationContext private val appContext : Context
+    @ApplicationContext private val appContext : Context,
+    private val audioRecordRepository: AudioRecordRepository
 ) : ViewModel(){
     private val _currentUri : MutableLiveData<Uri> = MutableLiveData()
     private val currentUri : LiveData<Uri> get() = _currentUri
@@ -21,7 +26,7 @@ class RecordViewModel @Inject constructor(
     private val isRecording : LiveData<Boolean> get() = _isRecording
 
 
-    private val audioManager : AudioManager = AudioManager(appContext)
+    private val audioManager : AudioManager = AudioManager(appContext, audioRecordRepository)
 
     init {
         _isRecording.value = false
@@ -37,9 +42,13 @@ class RecordViewModel @Inject constructor(
             if (!it){
                 return@let
             }
-            audioManager.stopRecord()
+            viewModelScope.launch {
+                audioManager.stopRecord()
+            }
         }
     }
+
+    fun getCurrentUri() : Uri = currentUri.value!!
 
     fun isRecording() : Boolean = isRecording.value ?: false
 
