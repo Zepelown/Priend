@@ -10,6 +10,7 @@ import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import com.example.priend.databinding.ActivityRecordBinding
 import com.example.priend.stt.view.SttTestActivity
+import com.example.priend.tts.view.TtsTestActivity
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -39,6 +40,12 @@ class RecordActivity : AppCompatActivity() {
 
             moveSttButton.setOnClickListener {
                 val intent = Intent(applicationContext, SttTestActivity::class.java)
+                intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+                applicationContext.startActivity(intent)
+            }
+
+            moveTtsButton.setOnClickListener {
+                val intent = Intent(applicationContext, TtsTestActivity::class.java)
                 intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
                 applicationContext.startActivity(intent)
             }
