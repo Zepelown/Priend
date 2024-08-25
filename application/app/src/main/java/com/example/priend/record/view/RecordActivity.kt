@@ -42,6 +42,7 @@ class RecordActivity : AppCompatActivity() {
                 intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
                 applicationContext.startActivity(intent)
             }
+
         }
 
         setContentView(binding.root)

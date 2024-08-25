@@ -23,8 +23,15 @@ class MainActivity : AppCompatActivity() {
         val intent = Intent(this, RecordActivity::class.java)
         intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
         applicationContext.startActivity(intent)
+
+
     }
 
+
+    companion object{
+        const val test = "test"
+
+    }
 
 
 }
