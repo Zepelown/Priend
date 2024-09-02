@@ -10,6 +10,4 @@ class AudioRecordRepository @Inject constructor(
     suspend fun insertAudioRecord(audioRecordEntity: AudioRecordEntity) = audioRecordDao.insert(audioRecordEntity)
 
     suspend fun getAudioRecordById(id : Int) = audioRecordDao.getAudioRecordById(id)
-
-
 }

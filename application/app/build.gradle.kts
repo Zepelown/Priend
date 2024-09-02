@@ -74,6 +74,7 @@ dependencies {
     kapt("androidx.room:room-compiler:$room_version")
     implementation ("androidx.room:room-ktx:2.5.0")
 
+    implementation ("com.github.bumptech.glide:glide:4.16.0")
 
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)

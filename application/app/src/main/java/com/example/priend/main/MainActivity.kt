@@ -26,12 +26,4 @@ class MainActivity : AppCompatActivity() {
 
 
     }
-
-
-    companion object{
-        const val test = "test"
-
-    }
-
-
 }
