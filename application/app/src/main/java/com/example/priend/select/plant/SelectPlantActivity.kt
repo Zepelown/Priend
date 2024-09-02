@@ -20,7 +20,5 @@ class SelectPlantActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         _binding = ActivitySelectPlantBinding.inflate(layoutInflater)
         setContentView(binding.root)
-
-
     }
 }

@@ -11,6 +11,7 @@
         android:name="android.permission.WRITE_EXTERNAL_STORAGE"
         tools:ignore="ScopedStorage" />
 
+
     <application
         android:name=".common.PriendApp"
         android:allowBackup="true"
@@ -23,6 +24,10 @@
         android:theme="@style/Theme.Priend"
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
+        <activity
+            android:name=".tts.view.TtsTestActivity"
+            android:exported="false" >
+        </activity>
         <activity
             android:name=".select.plant.SelectPlantActivity"
             android:exported="false" />
@@ -39,7 +44,8 @@
 
         <activity
             android:name=".stt.view.SttTestActivity"
-            android:exported="false" />
+            android:exported="false" >
+        </activity>
         <activity
             android:name=".record.view.RecordActivity"
             android:exported="false" />
@@ -53,5 +59,11 @@
             </intent-filter>
         </activity>
     </application>
+
+    <queries>
+        <intent>
+            <action android:name="android.intent.action.TTS_SERVICE" />
+        </intent>
+    </queries>
 
 </manifest>

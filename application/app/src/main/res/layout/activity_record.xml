@@ -28,4 +28,10 @@
         android:layout_height="wrap_content"
         android:text="stt 테스팅 페이지로"/>
 
+    <Button
+        android:id="@+id/move_tts_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="tts 테스팅 페이지로"/>
+
 </LinearLayout>
