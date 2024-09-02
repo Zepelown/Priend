@@ -21,14 +21,6 @@ class SelectPlantActivity : AppCompatActivity(), SelectPlantItemClickListener {
 
     private val binding get() = _binding!!
 
-
-    val plants = listOf<SelectPlantItem>(
-        SelectPlantItem("스파티필룸속",R.drawable.spathiphyllum),
-        SelectPlantItem("호야",R.drawable.hoya),
-        SelectPlantItem("필로덴드론속",R.drawable.philodendron),
-        SelectPlantItem("산세비에리아",R.drawable.sansevieria),
-    )
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
@@ -47,7 +39,6 @@ class SelectPlantActivity : AppCompatActivity(), SelectPlantItemClickListener {
     }
 
     override fun onItemClick(position: Int) {
-//        Toast.makeText(applicationContext, "Clicked item at position $position", Toast.LENGTH_SHORT).show()
         val spf = applicationContext.getSharedPreferences("PriendPrefs", MODE_PRIVATE)
         spf.edit()
             .putString("plantName",plants.get(position).title)
@@ -56,5 +47,14 @@ class SelectPlantActivity : AppCompatActivity(), SelectPlantItemClickListener {
         val intent = Intent(this, MainActivity::class.java)
         intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
         applicationContext.startActivity(intent)
+    }
+
+    companion object{
+        private val plants = listOf<SelectPlantItem>(
+            SelectPlantItem("스파티필룸속",R.drawable.spathiphyllum),
+            SelectPlantItem("호야",R.drawable.hoya),
+            SelectPlantItem("필로덴드론속",R.drawable.philodendron),
+            SelectPlantItem("산세비에리아",R.drawable.sansevieria),
+        )
     }
 }
