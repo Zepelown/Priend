@@ -14,7 +14,9 @@ import com.example.priend.main.MainActivity
 import com.example.priend.select.plant.view.recyclerview.SelectPlantItem
 import com.example.priend.select.plant.view.recyclerview.SelectPlantItemClickListener
 import com.example.priend.select.plant.view.recyclerview.SelectPlantViewAdapter
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class SelectPlantActivity : AppCompatActivity(), SelectPlantItemClickListener {
 
     private var _binding : ActivitySelectPlantBinding? = null
