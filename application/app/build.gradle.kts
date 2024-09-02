@@ -63,6 +63,8 @@ dependencies {
     implementation("com.squareup.okhttp3:logging-interceptor:4.11.0")
 
     implementation ("com.google.dagger:hilt-android:2.51.1")
+    implementation(libs.androidx.navigation.fragment.ktx)
+    implementation(libs.androidx.navigation.ui.ktx)
     kapt("com.google.dagger:hilt-compiler:2.51.1")
 
     implementation ("com.arthenica:mobile-ffmpeg-full:4.4")
