@@ -1,10 +1,11 @@
 package com.example.priend.main
 
-import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import androidx.navigation.fragment.NavHostFragment
+import androidx.navigation.ui.NavigationUI
+import com.example.priend.R
 import com.example.priend.databinding.ActivityMainBinding
-import com.example.priend.record.view.RecordActivity
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -18,12 +19,13 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         _binding = ActivityMainBinding.inflate(layoutInflater)
 
+        val navHostFragment = supportFragmentManager.findFragmentById(R.id.navi_host_fragment) as NavHostFragment
+
+        val navController = navHostFragment.navController
+
+        NavigationUI.setupWithNavController(binding.bottomNavi, navController)
+
+
         setContentView(binding.root)
-
-        val intent = Intent(this, RecordActivity::class.java)
-        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
-        applicationContext.startActivity(intent)
-
-
     }
 }

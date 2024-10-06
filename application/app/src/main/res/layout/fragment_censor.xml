@@ -1,0 +1,399 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".censor.view.CensorFragment">
+
+    <data>
+        <variable
+            name="censorViewModel"
+            type="com.example.priend.censor.view.CensorViewModel" />
+    </data>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="현재 선택한 식물"
+                android:textAlignment="center"
+                android:textSize="30dp"
+                />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="#000000"/>
+
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="5dp"/>
+
+            <TextView
+                android:id="@+id/plant_name_textview"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="test"
+                android:gravity="center"
+                android:textColor="@color/black"
+                android:textSize="25dp"/>
+
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="10dp"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="블루투스 장비 찾기"
+                android:textAlignment="center"
+                android:textSize="30dp"
+                />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="#000000"/>
+
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="5dp"/>
+
+            <Button
+                android:id="@+id/connectButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="블루투스 장비 찾기" />
+
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="10dp"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="토양 현재 상태"
+                android:textAlignment="center"
+                android:textSize="30dp"
+                />
+
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="5dp"/>
+
+            <TextView
+                android:id="@+id/dataTextView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Data will appear here"
+                android:textAlignment="center"/>
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="5dp"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:gravity="center"
+                >
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/border">
+
+                    <TextView
+                        android:id="@+id/soilMoistureTitle"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintEnd_toStartOf="@id/soilMoistureData"
+                        app:layout_constraintHorizontal_weight="1"
+                        android:text="토양습도"
+                        android:textAlignment="center"
+                        android:textSize="25dp"
+                        android:background="@drawable/border"/>
+
+                    <TextView
+                        android:id="@+id/soilMoistureData"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        app:layout_constraintStart_toEndOf="@id/soilMoistureTitle"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_weight="2"
+                        app:textWithColor="@{censorViewModel.getSoilMoistureStatus()}"
+                        android:textAlignment="center"
+                        android:textSize="25dp" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <Space
+                    android:layout_width="match_parent"
+                    android:layout_height="10dp"/>
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/border">
+
+                    <TextView
+                        android:id="@+id/airMoistureTitle"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintEnd_toStartOf="@id/airMoistureData"
+                        app:layout_constraintHorizontal_weight="1"
+                        android:text="대기습도"
+                        android:textAlignment="center"
+                        android:textSize="25dp"
+                        android:background="@drawable/border"/>
+
+                    <TextView
+                        android:id="@+id/airMoistureData"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        app:layout_constraintStart_toEndOf="@id/airMoistureTitle"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_weight="2"
+                        android:text="@{censorViewModel.getAirMoistureStatus().component1()}"
+                        android:textColor="@{censorViewModel.getAirMoistureStatus().component2()}"
+                        android:textAlignment="center"
+                        android:textSize="25dp"
+                        />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+            </LinearLayout>
+
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="10dp"/>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/border">
+
+                <TextView
+                    android:id="@+id/airTemperatureTitle"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toStartOf="@id/airTemperatureData"
+                    app:layout_constraintHorizontal_weight="1"
+                    android:text="대기온도"
+                    android:textAlignment="center"
+                    android:textSize="25dp"
+                    android:background="@drawable/border"/>
+
+                <TextView
+                    android:id="@+id/airTemperatureData"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    app:layout_constraintStart_toEndOf="@id/airTemperatureTitle"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_weight="2"
+                    android:text="@{censorViewModel.getAirTemperature()}"
+                    android:textAlignment="center"
+                    android:textSize="25dp"
+                    />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="10dp"/>
+
+
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="나이 선택"
+                android:textAlignment="center"
+                android:textSize="30dp"
+                />
+
+
+
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="5dp"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:gravity="center">
+
+                <TextView
+                    android:id="@+id/age_textview"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="1"
+                    android:textSize="20dp"/>
+
+                <SeekBar
+                    android:id="@+id/age_seekbar"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:min="1"
+                    android:progress="1"
+                    android:max="50"/>
+
+                <!--                <Button-->
+                <!--                    android:id="@+id/childVoiceButton"-->
+                <!--                    android:layout_width="wrap_content"-->
+                <!--                    android:layout_height="wrap_content"-->
+                <!--                    android:text="어린아이"-->
+                <!--                    />-->
+
+                <!--                <Button-->
+                <!--                    android:id="@+id/studentVoiceButton"-->
+                <!--                    android:layout_width="wrap_content"-->
+                <!--                    android:layout_height="wrap_content"-->
+                <!--                    android:text="학생"-->
+                <!--                    />-->
+
+                <!--                <Button-->
+                <!--                    android:id="@+id/adultVoiceButton"-->
+                <!--                    android:layout_width="wrap_content"-->
+                <!--                    android:layout_height="wrap_content"-->
+                <!--                    android:text="어른"/>-->
+
+                <!--                <Button-->
+                <!--                    android:id="@+id/elderVoiceButton"-->
+                <!--                    android:layout_width="wrap_content"-->
+                <!--                    android:layout_height="wrap_content"-->
+                <!--                    android:text="노인"/>-->
+
+            </LinearLayout>
+
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="20dp"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="토양센서 임계값 선택"
+                android:textAlignment="center"
+                android:textSize="30dp"
+                />
+
+            <TextView
+                android:id="@+id/soilMoistureStandardData"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="600"
+                android:textAlignment="center"/>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="#000000"/>
+
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="5dp"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center">
+
+                <Button
+                    android:id="@+id/lowSoilCensorThresholdButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="임계값 낮게 설정"
+                    />
+
+                <Button
+                    android:id="@+id/defaultSoilCensorThresholdButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="기본값"
+                    />
+
+                <Button
+                    android:id="@+id/highSoilCensorThresholdButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="임계값 높게 설정"/>
+
+            </LinearLayout>
+
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="20dp"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="습도센서 임계값 선택"
+                android:textAlignment="center"
+                android:textSize="30dp"
+                />
+
+            <TextView
+                android:id="@+id/airMoistureStandardData"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="40"
+                android:textAlignment="center"/>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="#000000"/>
+
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="5dp"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center">
+
+                <Button
+                    android:id="@+id/lowAirCensorThresholdButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="임계값 낮게 설정"
+                    />
+
+                <Button
+                    android:id="@+id/defaultAirCensorThresholdButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="기본값"
+                    />
+
+                <Button
+                    android:id="@+id/highAirCensorThresholdButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="임계값 높게 설정"/>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </ScrollView>
+
+</layout>
