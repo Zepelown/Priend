@@ -2,13 +2,9 @@ package com.example.priend.select.plant
 
 import android.content.Intent
 import android.os.Bundle
-import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
 import androidx.recyclerview.widget.GridLayoutManager
 import com.example.priend.R
-import com.example.priend.databinding.ActivityMainBinding
 import com.example.priend.databinding.ActivitySelectPlantBinding
 import com.example.priend.main.MainActivity
 import com.example.priend.select.plant.view.recyclerview.SelectPlantItem

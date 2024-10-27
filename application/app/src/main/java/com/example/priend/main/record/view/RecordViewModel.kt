@@ -1,4 +1,4 @@
-package com.example.priend.record.view
+package com.example.priend.main.record.view
 
 import android.content.Context
 import android.net.Uri
@@ -6,9 +6,8 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.priend.common.db.record.AudioRecordEntity
 import com.example.priend.common.db.record.AudioRecordRepository
-import com.example.priend.record.domain.audio.AudioManager
+import com.example.priend.main.record.domain.audio.AudioManager
 import dagger.hilt.android.lifecycle.HiltViewModel
 import dagger.hilt.android.qualifiers.ApplicationContext
 import kotlinx.coroutines.launch

@@ -1,4 +1,4 @@
-package com.example.priend.censor.view
+package com.example.priend.main.censor.view
 
 import android.Manifest
 import android.bluetooth.BluetoothAdapter
@@ -26,9 +26,7 @@ import androidx.core.content.ContextCompat
 import androidx.core.content.ContextCompat.registerReceiver
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
-import com.example.priend.R
 import com.example.priend.databinding.FragmentCensorBinding
-import com.example.priend.databinding.FragmentRecordBinding
 import dagger.hilt.android.AndroidEntryPoint
 import java.io.IOException
 import java.io.InputStream

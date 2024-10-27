@@ -2,12 +2,12 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".censor.view.CensorFragment">
+    tools:context=".main.censor.view.CensorFragment">
 
     <data>
         <variable
             name="censorViewModel"
-            type="com.example.priend.censor.view.CensorViewModel" />
+            type="com.example.priend.main.censor.view.CensorViewModel" />
     </data>
 
     <ScrollView

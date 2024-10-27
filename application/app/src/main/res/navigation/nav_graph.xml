@@ -7,14 +7,14 @@
 
     <fragment
         android:id="@+id/recordFragment"
-        android:name="com.example.priend.record.view.RecordFragment"
+        android:name="com.example.priend.main.record.view.RecordFragment"
         android:label="fragment_record"
         tools:layout="@layout/fragment_record"
         />
 
     <fragment
         android:id="@+id/censorFragment"
-        android:name="com.example.priend.censor.view.CensorFragment"
+        android:name="com.example.priend.main.censor.view.CensorFragment"
         android:label="fragment_censor"
         tools:layout="@layout/fragment_censor">
 

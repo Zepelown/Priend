@@ -1,13 +1,11 @@
-package com.example.priend.censor.view
+package com.example.priend.main.censor.view
 
 import android.util.Log
-import androidx.annotation.ColorRes
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.example.priend.R
 import com.example.priend.common.TextWithColor
-import dagger.hilt.android.lifecycle.HiltViewModel
 
 class CensorViewModel : ViewModel() {
     private val _soilMoistureCondition = MutableLiveData<Int>()

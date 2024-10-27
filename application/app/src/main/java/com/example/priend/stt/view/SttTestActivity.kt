@@ -4,13 +4,8 @@ import android.os.Bundle
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
-import androidx.lifecycle.lifecycleScope
-import com.example.priend.R
-import com.example.priend.common.Constants
 import com.example.priend.databinding.ActivitySttTestBinding
-import com.example.priend.record.view.RecordViewModel
 import dagger.hilt.android.AndroidEntryPoint
-import java.io.File
 
 @AndroidEntryPoint
 class SttTestActivity : AppCompatActivity() {
