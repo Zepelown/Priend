@@ -1,25 +1,24 @@
-package com.example.priend.main.info.recyclerview
+package com.example.priend.main.info.recyclerview.viewholder
 
 import android.view.View
 import androidx.recyclerview.widget.RecyclerView
 import com.example.priend.common.view.RecyclerViewItemClickListener
 import com.example.priend.databinding.ItemInfoBinding
+import com.example.priend.main.info.recyclerview.InfoItem
 
-class InfoViewHolder(
+class InfoPlantViewHolder(
     private val binding: ItemInfoBinding,
     private val clickListener: RecyclerViewItemClickListener
-) : RecyclerView.ViewHolder(binding.root), View.OnClickListener {
-
+) : RecyclerView.ViewHolder(binding.root), View.OnClickListener, InfoViewHolder {
     init {
         binding.root.setOnClickListener(this)
     }
 
-    fun bind(item: InfoItem) {
-
-    }
-
     override fun onClick(v: View?) {
-
+        TODO("Not yet implemented")
     }
 
+    override fun bind(item: InfoItem) {
+
+    }
 }

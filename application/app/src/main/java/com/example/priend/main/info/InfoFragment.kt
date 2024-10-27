@@ -8,8 +8,8 @@ import android.view.ViewGroup
 import com.example.priend.common.view.RecyclerViewItemClickListener
 import com.example.priend.databinding.FragmentInfoBinding
 import com.example.priend.main.info.recyclerview.InfoItem
+import com.example.priend.main.info.recyclerview.InfoItemType
 import com.example.priend.main.info.recyclerview.InfoViewAdapter
-import com.example.priend.main.info.recyclerview.InfoViewHolder
 
 
 class InfoFragment : Fragment(), RecyclerViewItemClickListener {
@@ -34,9 +34,10 @@ class InfoFragment : Fragment(), RecyclerViewItemClickListener {
         return binding.root
     }
 
-    companion object{
+    companion object {
         private val plantsInfo = listOf<InfoItem>(
-            InfoItem("test","2024.01.01","10","10c")
+            InfoItem(InfoItemType.PLANT, "test", "2024.01.01", "10", "10c"),
+            InfoItem(InfoItemType.ADD, "test", "2024.01.01", "10", "10c"),
         )
     }
 
