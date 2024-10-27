@@ -8,12 +8,12 @@ import com.example.priend.R
 import com.example.priend.databinding.ActivitySelectPlantBinding
 import com.example.priend.main.MainActivity
 import com.example.priend.select.plant.view.recyclerview.SelectPlantItem
-import com.example.priend.select.plant.view.recyclerview.SelectPlantItemClickListener
+import com.example.priend.common.view.RecyclerViewItemClickListener
 import com.example.priend.select.plant.view.recyclerview.SelectPlantViewAdapter
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
-class SelectPlantActivity : AppCompatActivity(), SelectPlantItemClickListener {
+class SelectPlantActivity : AppCompatActivity(), RecyclerViewItemClickListener {
 
     private var _binding : ActivitySelectPlantBinding? = null
 

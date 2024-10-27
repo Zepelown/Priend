@@ -4,11 +4,12 @@ import android.view.View
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
+import com.example.priend.common.view.RecyclerViewItemClickListener
 import com.example.priend.databinding.ItemSelectPlantBinding
 
 class SelectPlantViewHolder(
     private val binding: ItemSelectPlantBinding,
-    private val clickListener: SelectPlantItemClickListener
+    private val clickListener: RecyclerViewItemClickListener
 ) : RecyclerView.ViewHolder(binding.root), View.OnClickListener{
     init {
         binding.root.setOnClickListener(this)
