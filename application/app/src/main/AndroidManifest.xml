@@ -26,6 +26,15 @@
         android:theme="@style/Theme.Priend"
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
+
+        <service
+            android:name=".main.MyFirebaseMessagingService"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT"/>
+            </intent-filter>
+        </service>
+
         <activity
             android:name=".tts.view.TtsTestActivity"
             android:exported="false" >
@@ -69,5 +78,6 @@
             <action android:name="android.intent.action.TTS_SERVICE" />
         </intent>
     </queries>
+
 
 </manifest>

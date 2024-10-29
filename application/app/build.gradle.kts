@@ -3,6 +3,7 @@ plugins {
     alias(libs.plugins.jetbrainsKotlinAndroid)
     id("kotlin-kapt")
     id("com.google.dagger.hilt.android")
+    id("com.google.gms.google-services")
 }
 
 android {
@@ -77,6 +78,10 @@ dependencies {
     implementation ("androidx.room:room-ktx:2.5.0")
 
     implementation ("com.github.bumptech.glide:glide:4.16.0")
+
+    implementation(platform("com.google.firebase:firebase-bom:33.5.1"))
+    implementation ("com.google.firebase:firebase-analytics")
+    implementation ("com.google.firebase:firebase-messaging-ktx:23.4.1")
 
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
