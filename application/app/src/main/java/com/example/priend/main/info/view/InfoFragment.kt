@@ -1,4 +1,4 @@
-package com.example.priend.main.info
+package com.example.priend.main.info.view
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -7,9 +7,9 @@ import android.view.View
 import android.view.ViewGroup
 import com.example.priend.common.view.RecyclerViewItemClickListener
 import com.example.priend.databinding.FragmentInfoBinding
-import com.example.priend.main.info.recyclerview.InfoItem
-import com.example.priend.main.info.recyclerview.InfoItemType
-import com.example.priend.main.info.recyclerview.InfoViewAdapter
+import com.example.priend.main.info.view.recyclerview.InfoItem
+import com.example.priend.main.info.view.recyclerview.InfoItemType
+import com.example.priend.main.info.view.recyclerview.InfoViewAdapter
 
 
 class InfoFragment : Fragment(), RecyclerViewItemClickListener {

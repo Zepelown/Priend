@@ -1,11 +1,10 @@
-package com.example.priend.main.info.recyclerview.viewholder
+package com.example.priend.main.info.view.recyclerview.viewholder
 
 import android.view.View
 import androidx.recyclerview.widget.RecyclerView
 import com.example.priend.common.view.RecyclerViewItemClickListener
 import com.example.priend.databinding.ItemInfoAddBinding
-import com.example.priend.databinding.ItemInfoBinding
-import com.example.priend.main.info.recyclerview.InfoItem
+import com.example.priend.main.info.view.recyclerview.InfoItem
 
 class InfoAddViewHolder(
     private val binding: ItemInfoAddBinding,

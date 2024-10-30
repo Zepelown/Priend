@@ -1,4 +1,4 @@
-package com.example.priend.main.info.recyclerview
+package com.example.priend.main.info.view.recyclerview
 
 data class InfoItem(
     val type : InfoItemType,

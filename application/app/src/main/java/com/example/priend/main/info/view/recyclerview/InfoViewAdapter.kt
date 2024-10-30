@@ -1,4 +1,4 @@
-package com.example.priend.main.info.recyclerview
+package com.example.priend.main.info.view.recyclerview
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
@@ -7,8 +7,8 @@ import androidx.recyclerview.widget.RecyclerView.ViewHolder
 import com.example.priend.common.view.RecyclerViewItemClickListener
 import com.example.priend.databinding.ItemInfoAddBinding
 import com.example.priend.databinding.ItemInfoBinding
-import com.example.priend.main.info.recyclerview.viewholder.InfoAddViewHolder
-import com.example.priend.main.info.recyclerview.viewholder.InfoPlantViewHolder
+import com.example.priend.main.info.view.recyclerview.viewholder.InfoAddViewHolder
+import com.example.priend.main.info.view.recyclerview.viewholder.InfoPlantViewHolder
 import java.lang.RuntimeException
 
 class InfoViewAdapter(
