@@ -20,7 +20,7 @@ import dagger.hilt.android.AndroidEntryPoint
 class InfoFragment : Fragment(), RecyclerViewItemClickListener {
     private var _binding: FragmentInfoBinding? = null
     private val binding get() = _binding!!
-    private val infoViewModel : InfoViewModel by viewModels()
+    private val infoViewModel: InfoViewModel by viewModels()
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -28,7 +28,7 @@ class InfoFragment : Fragment(), RecyclerViewItemClickListener {
         _binding = FragmentInfoBinding.inflate(layoutInflater)
 
         val adapter = InfoViewAdapter(
-            plantsInfo,
+            mutableListOf(),
             this
         )
 
@@ -36,16 +36,13 @@ class InfoFragment : Fragment(), RecyclerViewItemClickListener {
             this.adapter = adapter
         }
 
+        infoViewModel.result.observe(viewLifecycleOwner) { newItems ->
+            adapter.submitItems(newItems)
+        }
+
         infoViewModel.getPotData(1.0)
 
         return binding.root
-    }
-
-    companion object {
-        private val plantsInfo = listOf<InfoItem>(
-            InfoItem(InfoItemType.PLANT, "test", "2024.01.01", "10", "10c"),
-            InfoItem(InfoItemType.ADD, "test", "2024.01.01", "10", "10c"),
-        )
     }
 
     override fun onItemClick(position: Int) {

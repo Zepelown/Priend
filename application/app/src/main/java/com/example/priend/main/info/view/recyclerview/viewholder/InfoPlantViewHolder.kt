@@ -19,6 +19,11 @@ class InfoPlantViewHolder(
     }
 
     override fun bind(item: InfoItem) {
-
+        binding.apply {
+            itemInfoPlantName.text = item.title
+            itemInfoTemperature.text = item.temperature
+            itemInfoStartDate.text = item.startDate
+            itemInfoSoilMoisture.text = item.soilMoisture
+        }
     }
 }

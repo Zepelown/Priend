@@ -20,7 +20,7 @@ class InfoViewModel @Inject constructor(
     fun getPotData(potId: Double) {
         viewModelScope.launch {
             getPotDataUseCase.invoke(potId).let {
-                _result.value
+                _result.value = listOf(it)
             }
         }
     }
