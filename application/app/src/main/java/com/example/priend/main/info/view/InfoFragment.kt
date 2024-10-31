@@ -5,16 +5,22 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.activity.viewModels
+import androidx.fragment.app.viewModels
 import com.example.priend.common.view.RecyclerViewItemClickListener
 import com.example.priend.databinding.FragmentInfoBinding
 import com.example.priend.main.info.view.recyclerview.InfoItem
 import com.example.priend.main.info.view.recyclerview.InfoItemType
 import com.example.priend.main.info.view.recyclerview.InfoViewAdapter
+import com.example.priend.stt.view.SttViewModel
+import dagger.hilt.android.AndroidEntryPoint
 
 
+@AndroidEntryPoint
 class InfoFragment : Fragment(), RecyclerViewItemClickListener {
     private var _binding: FragmentInfoBinding? = null
     private val binding get() = _binding!!
+    private val infoViewModel : InfoViewModel by viewModels()
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -30,6 +36,7 @@ class InfoFragment : Fragment(), RecyclerViewItemClickListener {
             this.adapter = adapter
         }
 
+        infoViewModel.getPotData(1.0)
 
         return binding.root
     }

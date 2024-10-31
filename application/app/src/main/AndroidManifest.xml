@@ -41,12 +41,14 @@
         </activity>
         <activity
             android:name=".select.plant.SelectPlantActivity"
-            android:exported="true" >
+            android:exported="true"
+            android:theme="@style/Theme.AppCompat.DayNight.NoActionBar">
 
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
+
             </intent-filter>
         </activity>
 
