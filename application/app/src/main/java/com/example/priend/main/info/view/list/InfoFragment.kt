@@ -1,4 +1,4 @@
-package com.example.priend.main.info.view
+package com.example.priend.main.info.view.list
 
 import android.Manifest
 import android.bluetooth.BluetoothAdapter
@@ -24,7 +24,7 @@ import androidx.core.content.ContextCompat
 import androidx.fragment.app.viewModels
 import com.example.priend.common.view.RecyclerViewItemClickListener
 import com.example.priend.databinding.FragmentInfoBinding
-import com.example.priend.main.info.view.recyclerview.InfoViewAdapter
+import com.example.priend.main.info.view.list.recyclerview.InfoViewAdapter
 import dagger.hilt.android.AndroidEntryPoint
 import java.io.IOException
 import java.io.InputStream

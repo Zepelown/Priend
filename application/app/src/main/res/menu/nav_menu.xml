@@ -3,15 +3,18 @@
     <item
         android:id="@+id/infoFragment"
         android:title="식물"
+        android:icon="@drawable/ic_plant"
         />
 
     <item
         android:id="@+id/censorFragment"
-        android:title="센서"/>
+        android:title="센서"
+        android:icon="@drawable/ic_censor"/>
 
     <item
         android:id="@+id/recordFragment"
         android:title="레코드"
+        android:icon="@drawable/ic_record"
         />
 
 <!--    <item-->

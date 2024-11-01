@@ -1,15 +1,16 @@
-package com.example.priend.main.info.view.recyclerview.viewholder
+package com.example.priend.main.info.view.list.recyclerview.viewholder
 
 import android.view.View
 import androidx.recyclerview.widget.RecyclerView
 import com.example.priend.common.view.RecyclerViewItemClickListener
-import com.example.priend.databinding.ItemInfoBinding
-import com.example.priend.main.info.view.recyclerview.InfoItem
+import com.example.priend.databinding.ItemInfoAddBinding
+import com.example.priend.main.info.view.list.recyclerview.InfoItem
 
-class InfoPlantViewHolder(
-    private val binding: ItemInfoBinding,
+class InfoAddViewHolder(
+    private val binding: ItemInfoAddBinding,
     private val clickListener: RecyclerViewItemClickListener
 ) : RecyclerView.ViewHolder(binding.root), View.OnClickListener, InfoViewHolder {
+
     init {
         binding.root.setOnClickListener(this)
     }
@@ -22,11 +23,11 @@ class InfoPlantViewHolder(
     }
 
     override fun bind(item: InfoItem) {
-        binding.apply {
-            itemInfoPlantName.text = item.title
-            itemInfoTemperature.text = item.temperature
-            itemInfoStartDate.text = item.startDate
-            itemInfoSoilMoisture.text = item.soilMoisture
+        val position = adapterPosition
+        if (position != RecyclerView.NO_POSITION) {
+            clickListener.onItemClick(position)
         }
     }
+
+
 }

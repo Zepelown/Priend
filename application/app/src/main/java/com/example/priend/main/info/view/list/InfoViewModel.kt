@@ -1,11 +1,11 @@
-package com.example.priend.main.info.view
+package com.example.priend.main.info.view.list
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.priend.main.info.domain.GetPotDataUseCase
-import com.example.priend.main.info.view.recyclerview.InfoItem
+import com.example.priend.main.info.view.list.recyclerview.InfoItem
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
 import javax.inject.Inject

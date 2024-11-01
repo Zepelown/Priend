@@ -7,10 +7,24 @@
 
     <fragment
         android:id="@id/infoFragment"
-        android:name="com.example.priend.main.info.view.InfoFragment"
+        android:name="com.example.priend.main.info.view.list.InfoFragment"
         android:label="fragment_info"
         tools:layout="@layout/fragment_info"
-        />
+        >
+        <action
+            android:id="@+id/action_infoFragment_to_infoDetailFragment"
+            app:destination="@id/infoDetailFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/infoDetailFragment"
+        android:name="com.example.priend.main.info.view.detail.InfoDetailFragment"
+        android:label="fragment_info_detail"
+        tools:layout="@layout/fragment_info_detail">
+        <action
+            android:id="@+id/action_infoDetailFragment_to_infoFragment2"
+            app:destination="@id/infoFragment" />
+    </fragment>
 
     <fragment
         android:id="@+id/recordFragment"
@@ -23,11 +37,7 @@
         android:id="@+id/censorFragment"
         android:name="com.example.priend.main.censor.view.CensorFragment"
         android:label="fragment_censor"
-        tools:layout="@layout/fragment_censor">
-
-
-
-    </fragment>
+        tools:layout="@layout/fragment_censor"/>
 
 
 </navigation>

@@ -3,8 +3,8 @@ package com.example.priend.main.info.domain
 import android.util.Log
 import com.example.priend.main.info.data.payload.reqeust.PotCensorRequest
 import com.example.priend.main.info.data.repository.InfoRepository
-import com.example.priend.main.info.view.recyclerview.InfoItem
-import com.example.priend.main.info.view.recyclerview.InfoItemType
+import com.example.priend.main.info.view.list.recyclerview.InfoItem
+import com.example.priend.main.info.view.list.recyclerview.InfoItemType
 import javax.inject.Inject
 
 class GetPotDataUseCase @Inject constructor(
