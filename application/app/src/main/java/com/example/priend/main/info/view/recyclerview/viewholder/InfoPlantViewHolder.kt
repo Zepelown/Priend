@@ -15,7 +15,7 @@ class InfoPlantViewHolder(
     }
 
     override fun onClick(v: View?) {
-        TODO("Not yet implemented")
+
     }
 
     override fun bind(item: InfoItem) {

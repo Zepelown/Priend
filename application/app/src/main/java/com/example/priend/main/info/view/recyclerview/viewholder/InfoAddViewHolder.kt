@@ -16,11 +16,17 @@ class InfoAddViewHolder(
     }
 
     override fun onClick(v: View?) {
-
+        val position = adapterPosition
+        if (position != RecyclerView.NO_POSITION) {
+            clickListener.onItemClick(position)
+        }
     }
 
     override fun bind(item: InfoItem) {
-
+        val position = adapterPosition
+        if (position != RecyclerView.NO_POSITION) {
+            clickListener.onItemClick(position)
+        }
     }
 
 
