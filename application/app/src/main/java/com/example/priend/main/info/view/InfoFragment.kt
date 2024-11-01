@@ -18,17 +18,13 @@ import android.view.ViewGroup
 import android.widget.ArrayAdapter
 import android.widget.ListView
 import android.widget.Toast
-import androidx.activity.viewModels
 import androidx.appcompat.app.AlertDialog
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.viewModels
 import com.example.priend.common.view.RecyclerViewItemClickListener
 import com.example.priend.databinding.FragmentInfoBinding
-import com.example.priend.main.info.view.recyclerview.InfoItem
-import com.example.priend.main.info.view.recyclerview.InfoItemType
 import com.example.priend.main.info.view.recyclerview.InfoViewAdapter
-import com.example.priend.stt.view.SttViewModel
 import dagger.hilt.android.AndroidEntryPoint
 import java.io.IOException
 import java.io.InputStream
@@ -46,7 +42,7 @@ class InfoFragment : Fragment(), RecyclerViewItemClickListener {
     private var bluetoothSocket: BluetoothSocket? = null
     private val uuid: UUID = UUID.fromString("00001101-0000-1000-8000-00805F9B34FB")
 
-    private lateinit var listAdapter: ArrayAdapter<String>
+    private lateinit var bluetoothListAdapter: ArrayAdapter<String>
     private val devicesList: MutableList<BluetoothDevice> = mutableListOf()
 
     private val handler = Handler()
@@ -55,6 +51,8 @@ class InfoFragment : Fragment(), RecyclerViewItemClickListener {
     private var buffer = ByteArray(1024)
     private var bufferPosition = 0
 
+    private lateinit var infoAdapter : InfoViewAdapter
+
     private var deviceSelectionDialog: AlertDialog? = null
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -62,22 +60,23 @@ class InfoFragment : Fragment(), RecyclerViewItemClickListener {
     ): View? {
         _binding = FragmentInfoBinding.inflate(layoutInflater)
 
-        val adapter = InfoViewAdapter(
+        infoAdapter = InfoViewAdapter(
             mutableListOf(),
             this
         )
 
         binding.plantInfoList.apply {
-            this.adapter = adapter
+            this.adapter = infoAdapter
         }
 
         infoViewModel.result.observe(viewLifecycleOwner) { newItems ->
-            adapter.submitItems(newItems)
+            infoAdapter.submitItems(newItems)
         }
 
         infoViewModel.getPotData(1.0)
 
-        listAdapter = ArrayAdapter(requireActivity(), android.R.layout.simple_list_item_1)
+
+        bluetoothListAdapter = ArrayAdapter(requireActivity(), android.R.layout.simple_list_item_1)
 
         if (ContextCompat.checkSelfPermission(requireActivity(), Manifest.permission.BLUETOOTH) != PackageManager.PERMISSION_GRANTED ||
             ContextCompat.checkSelfPermission(requireActivity(), Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
@@ -97,12 +96,14 @@ class InfoFragment : Fragment(), RecyclerViewItemClickListener {
     }
 
     override fun onItemClick(position: Int) {
-        startDiscovery()
-        showDeviceSelectionDialog()
+        if (infoAdapter.itemCount - 1 == position){
+            startDiscovery()
+            showDeviceSelectionDialog()
+        }
     }
     private fun startDiscovery() {
         devicesList.clear()
-        listAdapter.clear()
+        bluetoothListAdapter.clear()
         if (ActivityCompat.checkSelfPermission(
                 requireActivity(),
                 Manifest.permission.BLUETOOTH_SCAN
@@ -127,8 +128,8 @@ class InfoFragment : Fragment(), RecyclerViewItemClickListener {
                     ) {
                         return
                     }
-                    listAdapter.add("${it.name} (${it.address})")
-                    listAdapter.notifyDataSetChanged()
+                    bluetoothListAdapter.add("${it.name} (${it.address})")
+                    bluetoothListAdapter.notifyDataSetChanged()
                 }
             } else if (BluetoothAdapter.ACTION_DISCOVERY_FINISHED == action) {
                 if (devicesList.isEmpty()) {
@@ -144,7 +145,7 @@ class InfoFragment : Fragment(), RecyclerViewItemClickListener {
         builder.setTitle("Select a device")
 
         val listView = ListView(requireContext())
-        listView.adapter = listAdapter
+        listView.adapter = bluetoothListAdapter
         listView.setOnItemClickListener { _, _, which, _ ->
             val device = devicesList[which]
             connectToDevice(device)

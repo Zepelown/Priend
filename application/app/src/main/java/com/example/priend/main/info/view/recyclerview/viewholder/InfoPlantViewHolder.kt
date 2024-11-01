@@ -15,7 +15,10 @@ class InfoPlantViewHolder(
     }
 
     override fun onClick(v: View?) {
-
+        val position = adapterPosition
+        if (position != RecyclerView.NO_POSITION) {
+            clickListener.onItemClick(position)
+        }
     }
 
     override fun bind(item: InfoItem) {
