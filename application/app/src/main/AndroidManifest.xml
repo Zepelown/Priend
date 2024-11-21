@@ -13,6 +13,11 @@
         android:name="android.permission.WRITE_EXTERNAL_STORAGE"
         tools:ignore="ScopedStorage" />
 
+    <queries>
+        <intent>
+            <action android:name="android.intent.action.TTS_SERVICE" />
+        </intent>
+    </queries>
 
     <application
         android:name=".common.PriendApp"
@@ -26,29 +31,54 @@
         android:theme="@style/Theme.Priend"
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
+        <activity
+            android:name=".login.AuthCodeHandlerActivity"
+            android:exported="false"
+            android:theme="@style/Theme.Priend" />
+        <activity
+            android:name=".login.LoginActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
 
         <service
             android:name=".main.MyFirebaseMessagingService"
             android:exported="false">
             <intent-filter>
-                <action android:name="com.google.firebase.MESSAGING_EVENT"/>
+                <action android:name="com.google.firebase.MESSAGING_EVENT" />
             </intent-filter>
         </service>
 
         <activity
             android:name=".tts.view.TtsTestActivity"
-            android:exported="false" >
-        </activity>
+            android:exported="false" />
         <activity
             android:name=".select.plant.SelectPlantActivity"
             android:exported="true"
             android:theme="@style/Theme.Priend">
-
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.kakao.sdk.auth.AuthCodeHandlerActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
 
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+
+                <!-- Redirect URI: "kakao${NATIVE_APP_KEY}://oauth" -->
+                <data
+                    android:host="oauth"
+                    android:scheme="kakao${KAKAKO_APP_KEY}" />
             </intent-filter>
         </activity>
 
@@ -64,22 +94,11 @@
 
         <activity
             android:name=".stt.view.SttTestActivity"
-            android:exported="false" >
-        </activity>
+            android:exported="false" />
         <activity
             android:name=".main.MainActivity"
             android:exported="false"
-            android:theme="@style/Theme.Priend">
-
-
-        </activity>
+            android:theme="@style/Theme.Priend" />
     </application>
-
-    <queries>
-        <intent>
-            <action android:name="android.intent.action.TTS_SERVICE" />
-        </intent>
-    </queries>
-
 
 </manifest>

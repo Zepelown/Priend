@@ -83,20 +83,19 @@ class InfoFragment : Fragment(), RecyclerViewItemClickListener {
             ActivityCompat.requestPermissions(requireActivity(), arrayOf(Manifest.permission.BLUETOOTH, Manifest.permission.ACCESS_FINE_LOCATION), 1)
         }
 
-        val filter = IntentFilter(BluetoothDevice.ACTION_FOUND)
-        filter.addAction(BluetoothAdapter.ACTION_DISCOVERY_FINISHED)
-        ContextCompat.registerReceiver(
-            requireContext(),
-            receiver,
-            filter,
-            ContextCompat.RECEIVER_EXPORTED
-        )
-
         return binding.root
     }
 
     override fun onItemClick(position: Int) {
         if (infoAdapter.itemCount - 1 == position){
+            val filter = IntentFilter(BluetoothDevice.ACTION_FOUND)
+            filter.addAction(BluetoothAdapter.ACTION_DISCOVERY_FINISHED)
+            ContextCompat.registerReceiver(
+                requireContext(),
+                receiver,
+                filter,
+                ContextCompat.RECEIVER_EXPORTED
+            )
             startDiscovery()
             showDeviceSelectionDialog()
         }

@@ -10,6 +10,7 @@ import com.example.priend.R
 import com.example.priend.databinding.ActivityMainBinding
 import com.google.android.gms.tasks.OnCompleteListener
 import com.google.firebase.messaging.FirebaseMessaging
+import com.kakao.sdk.user.UserApiClient
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -31,6 +32,17 @@ class MainActivity : AppCompatActivity() {
 
 
         setContentView(binding.root)
+
+        UserApiClient.instance.me { user, error ->
+            if (error != null) {
+                Log.e(TAG, "사용자 정보 요청 실패 $error")
+            } else if (user != null) {
+                Log.e(TAG, "사용자 정보 요청 성공 : $user")
+                Log.d(TAG, user.kakaoAccount?.profile?.nickname ?: "null")
+                Log.d(TAG, user.kakaoAccount?.ageRange.toString())
+                Log.d(TAG, user.kakaoAccount?.email ?: "null")
+            }
+        }
 
         FirebaseMessaging.getInstance().token.addOnCompleteListener(OnCompleteListener { task ->
             if (!task.isSuccessful) {
