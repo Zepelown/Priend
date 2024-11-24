@@ -10,4 +10,5 @@
     <color name="skyblue">#74D6EA</color>
     <color name="red">#F06C83</color>
     <color name="green">#00ff00</color>
+    <color name="lightGray">#c8c8c8</color>
 </resources>

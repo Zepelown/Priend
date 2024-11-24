@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".main.info.view.list.InfoFragment">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="0.1"
+            android:padding="10dp">
+
+            <ImageView
+                android:id="@+id/info_title_icon"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:src="@drawable/ic_priend"
+                app:layout_constraintHorizontal_weight="0.5"
+                app:layout_constraintEnd_toStartOf="@+id/info_detail_plant_name"
+                app:layout_constraintStart_toStartOf="parent"
+                tools:layout_editor_absoluteY="10dp" />
+
+            <TextView
+                android:id="@+id/info_detail_plant_name"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_marginStart="10sp"
+                android:gravity="center"
+                android:text="Priend"
+                android:textSize="20sp"
+                android:textAlignment="viewStart"
+                app:layout_constraintEnd_toStartOf="@+id/info_menu_icon"
+                app:layout_constraintStart_toEndOf="@+id/info_title_icon"
+                app:layout_constraintHorizontal_weight="3"
+                tools:layout_editor_absoluteY="10dp" />
+
+            <ImageView
+                android:id="@+id/info_menu_icon"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                app:layout_constraintStart_toEndOf="@id/info_detail_plant_name"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_weight="0.3"
+                android:src="@drawable/ic_menu"/>
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/plant_info_list"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingBottom="4sp"
+                android:clipToPadding="false"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                tools:listitem="@layout/item_info"/>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+
+</layout>

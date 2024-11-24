@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="150sp"
+    android:orientation="horizontal"
+    android:padding="10sp"
+    android:layout_marginTop="4sp"
+    android:layout_marginBottom="4sp"
+    android:background="@drawable/border">
+
+    <ImageView
+        android:id="@+id/item_info_plant_image"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:src="@drawable/hoya"/>
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1.3"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/item_info_plant_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="20sp"
+            android:text="식물 이름" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="시작 날짜"
+                android:textSize="10sp"
+                android:layout_gravity="center"
+                android:textColor="@color/lightGray"/>
+
+            <TextView
+                android:id="@+id/item_info_start_date"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10sp"
+                android:text="키우기 시작한 날짜" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="토양 수분"
+                android:textSize="10sp"
+                android:layout_gravity="center"
+                android:textColor="@color/lightGray"/>
+
+            <TextView
+                android:id="@+id/item_info_soil_moisture"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10sp"
+                android:text="토양수분" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="대기 온도"
+                android:textSize="10sp"
+                android:layout_gravity="center"
+                android:textColor="@color/lightGray"/>
+
+            <TextView
+                android:id="@+id/item_info_temperature"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10sp"
+                android:text="온도" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="대기 습도"
+                android:textSize="10sp"
+                android:layout_gravity="center"
+                android:textColor="@color/lightGray"/>
+
+            <TextView
+                android:id="@+id/item_info_humidity"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10sp"
+                android:text="습도" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="조도"
+                android:textSize="10sp"
+                android:layout_gravity="center"
+                android:textColor="@color/lightGray"/>
+
+            <TextView
+                android:id="@+id/item_info_illuminance"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10sp"
+                android:text="조도" />
+
+        </LinearLayout>
+
+
+
+
+    </LinearLayout>
+
+
+
+
+</LinearLayout>
+

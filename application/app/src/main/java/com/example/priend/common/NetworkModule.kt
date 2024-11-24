@@ -1,6 +1,8 @@
 package com.example.priend.common
 
 import com.arthenica.mobileffmpeg.BuildConfig
+import com.example.priend.main.info.data.repository.InfoRepository
+import com.example.priend.main.info.data.source.InfoSource
 import com.example.priend.stt.data.repository.SttRepository
 import com.example.priend.stt.data.source.SttService
 import dagger.Module
@@ -11,6 +13,7 @@ import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
+import retrofit2.create
 import javax.inject.Singleton
 
 @Module
@@ -21,14 +24,18 @@ object NetworkModule {
 
     @Singleton
     @Provides
-    fun provideOkHttpClient() = if (BuildConfig.DEBUG) {
-        val loggingInterceptor = HttpLoggingInterceptor()
-        loggingInterceptor.setLevel(HttpLoggingInterceptor.Level.BODY)
-        OkHttpClient.Builder()
-            .addInterceptor(loggingInterceptor)
+    fun provideOkHttpClient(): OkHttpClient {
+        val loggingInterceptor = HttpLoggingInterceptor().apply {
+            level = if (BuildConfig.DEBUG) {
+                HttpLoggingInterceptor.Level.BODY // 디버그 모드에서는 요청 및 응답 바디를 로그로 출력
+            } else {
+                HttpLoggingInterceptor.Level.NONE // 릴리즈 모드에서는 로그를 출력하지 않음
+            }
+        }
+
+        return OkHttpClient.Builder()
+            .addInterceptor(loggingInterceptor) // 로깅 인터셉터 추가
             .build()
-    } else {
-        OkHttpClient.Builder().build()
     }
 
     @Singleton
@@ -43,12 +50,20 @@ object NetworkModule {
 
     @Provides
     @Singleton
-    fun provideApiService(retrofit: Retrofit): SttService {
+    fun provideSttService(retrofit: Retrofit): SttService {
         return retrofit.create(SttService::class.java)
     }
 
     @Singleton
     @Provides
     fun provideSttRepository(sttService: SttService) = SttRepository(sttService)
+
+    @Singleton
+    @Provides
+    fun provideInfoService(retrofit: Retrofit): InfoSource = retrofit.create(InfoSource::class.java)
+
+    @Singleton
+    @Provides
+    fun provideInfoRepository(infoSource: InfoSource) : InfoRepository = InfoRepository(infoSource)
 
 }
