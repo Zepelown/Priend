@@ -25,7 +25,6 @@ class InfoDetailFragment : Fragment() {
 
         item?.let {
             Log.d("InfoDetail", item.title)
-            binding.infoDetailPlantTitle.text = item.title
             binding.infoDetailPlantName.text = item.title
             binding.infoDetailTemperature.text = item.temperature
             binding.infoDetailStartDate.text = item.startDate

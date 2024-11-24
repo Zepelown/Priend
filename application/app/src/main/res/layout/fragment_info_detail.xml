@@ -33,7 +33,7 @@
                 android:layout_height="match_parent"
                 android:layout_marginStart="10sp"
                 android:gravity="center"
-                android:text="PlantName"
+                android:text="식물 상세 정보"
                 android:textSize="20sp"
                 android:textAlignment="viewStart"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -159,7 +159,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="조도"
+                        android:text="조        도"
                         android:textSize="10sp"
                         android:layout_gravity="center"
                         android:textColor="@color/lightGray"/>
