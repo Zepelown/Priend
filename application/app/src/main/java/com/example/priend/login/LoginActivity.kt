@@ -16,6 +16,7 @@ import com.google.android.datatransport.runtime.scheduling.jobscheduling.Schedul
 import com.kakao.sdk.auth.model.OAuthToken
 import com.kakao.sdk.common.model.ClientError
 import com.kakao.sdk.common.model.ClientErrorCause
+import com.kakao.sdk.common.util.Utility
 import com.kakao.sdk.user.UserApiClient
 
 class LoginActivity : AppCompatActivity() {
@@ -34,6 +35,8 @@ class LoginActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
             _binding = ActivityLoginBinding.inflate(layoutInflater)
         enableEdgeToEdge()
+        var keyHash = Utility.getKeyHash(this)
+        Log.e(TAG, "해시 키 값 : ${keyHash}")
         binding.kakaoLoginButton.setOnClickListener {
 
 
@@ -56,6 +59,7 @@ class LoginActivity : AppCompatActivity() {
                     // 로그인 성공 부분
                     else if (token != null) {
                         Log.e(TAG, "로그인 성공 ${token.accessToken}")
+                        goToMainActivity()
                     }
                 }
             } else {

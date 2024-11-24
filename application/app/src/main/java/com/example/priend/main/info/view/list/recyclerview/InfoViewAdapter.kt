@@ -73,6 +73,10 @@ class InfoViewAdapter(
         notifyDataSetChanged()
     }
 
+    fun getItem(position: Int) : InfoItem{
+        return plantsInfo[position];
+    }
+
     companion object {
         private const val VIEW_TYPE_PLANT = 0
         private const val VIEW_TYPE_ADD = 1

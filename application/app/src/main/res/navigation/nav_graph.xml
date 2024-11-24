@@ -13,7 +13,11 @@
         >
         <action
             android:id="@+id/action_infoFragment_to_infoDetailFragment"
-            app:destination="@id/infoDetailFragment" />
+            app:destination="@id/infoDetailFragment" >
+            <argument
+                android:name="item"
+                app:argType="com.example.priend.main.info.view.list.recyclerview.InfoItem"/>
+        </action>
     </fragment>
 
     <fragment

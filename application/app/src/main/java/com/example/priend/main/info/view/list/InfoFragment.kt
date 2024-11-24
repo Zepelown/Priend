@@ -22,6 +22,8 @@ import androidx.appcompat.app.AlertDialog
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
+import com.example.priend.R
 import com.example.priend.common.view.RecyclerViewItemClickListener
 import com.example.priend.databinding.FragmentInfoBinding
 import com.example.priend.main.info.view.list.recyclerview.InfoViewAdapter
@@ -98,7 +100,14 @@ class InfoFragment : Fragment(), RecyclerViewItemClickListener {
             )
             startDiscovery()
             showDeviceSelectionDialog()
+            return
         }
+        val item = infoAdapter.getItem(position)
+
+        val bundle = Bundle().apply {
+            putSerializable("item",item)
+        }
+        findNavController().navigate(R.id.action_infoFragment_to_infoDetailFragment, bundle)
     }
     private fun startDiscovery() {
         devicesList.clear()
