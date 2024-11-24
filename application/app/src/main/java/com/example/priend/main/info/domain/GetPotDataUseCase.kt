@@ -23,7 +23,9 @@ class GetPotDataUseCase @Inject constructor(
                 title = it.potData.plantName,
                 startDate = it.potData.plantStartDate.toString(),
                 soilMoisture = it.potData.plantSoilMoisture.toString(),
-                temperature = it.potData.plantTemperature.toString()
+                temperature = it.potData.plantTemperature.toString(),
+                humidity = it.potData.plantHumidity.toString(),
+                illuminance = it.potData.plantIlluminance.toString()
             )
         }
     }

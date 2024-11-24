@@ -46,6 +46,19 @@
             android:layout_height="wrap_content"
             android:text="온도" />
 
+        <TextView
+            android:id="@+id/item_info_humidity"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="습도" />
+
+        <TextView
+            android:id="@+id/item_info_illuminance"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="조명" />
+
+
     </LinearLayout>
 
 

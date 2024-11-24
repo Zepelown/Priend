@@ -11,6 +11,7 @@ import android.content.IntentFilter
 import android.content.pm.PackageManager
 import android.os.Bundle
 import android.os.Handler
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -89,7 +90,8 @@ class InfoFragment : Fragment(), RecyclerViewItemClickListener {
     }
 
     override fun onItemClick(position: Int) {
-        if (infoAdapter.itemCount - 1 == position){
+        Log.d("InfoFragment", "onItemClick called with position: $position")
+        if (infoAdapter.itemCount > 0 && infoAdapter.itemCount - 1 == position) {
             val filter = IntentFilter(BluetoothDevice.ACTION_FOUND)
             filter.addAction(BluetoothAdapter.ACTION_DISCOVERY_FINISHED)
             ContextCompat.registerReceiver(

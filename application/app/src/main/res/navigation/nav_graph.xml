@@ -26,7 +26,7 @@
         android:label="fragment_info_detail"
         tools:layout="@layout/fragment_info_detail">
         <action
-            android:id="@+id/action_infoDetailFragment_to_infoFragment2"
+            android:id="@+id/action_infoDetailFragment_to_infoFragment"
             app:destination="@id/infoFragment" />
     </fragment>
 

@@ -23,6 +23,7 @@ android {
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         buildConfigField("String", "KAKAKO_APP_KEY", getKey("KAKAKO_APP_KEY"))
+        buildConfigField("String", "BASE_URL",getKey("BASE_URL"))
 
     }
 

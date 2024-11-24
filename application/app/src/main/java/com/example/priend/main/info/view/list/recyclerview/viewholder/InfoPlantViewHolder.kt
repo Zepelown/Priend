@@ -27,6 +27,8 @@ class InfoPlantViewHolder(
             itemInfoTemperature.text = item.temperature
             itemInfoStartDate.text = item.startDate
             itemInfoSoilMoisture.text = item.soilMoisture
+            itemInfoHumidity.text = item.humidity
+            itemInfoIlluminance.text = item.illuminance
         }
     }
 }

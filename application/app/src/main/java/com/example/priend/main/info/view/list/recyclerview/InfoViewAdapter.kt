@@ -80,6 +80,6 @@ class InfoViewAdapter(
     companion object {
         private const val VIEW_TYPE_PLANT = 0
         private const val VIEW_TYPE_ADD = 1
-        private val ADD_INFO_ITEM = InfoItem(InfoItemType.ADD, "test", "2024.01.01", "10", "10c")
+        private val ADD_INFO_ITEM = InfoItem(InfoItemType.ADD, "test", "2024.01.01", "10", "10c","1","2")
     }
 }
