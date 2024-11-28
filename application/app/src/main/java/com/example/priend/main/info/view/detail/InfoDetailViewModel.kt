@@ -1,4 +1,4 @@
-package com.example.priend.main.info.view.list
+package com.example.priend.main.info.view.detail
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
@@ -12,11 +12,11 @@ import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
-class InfoViewModel @Inject constructor(
+class InfoDetailViewModel @Inject constructor (
     private val getPotDataUseCase: GetPotDataUseCase
-) : ViewModel() {
-    private val _result: MutableLiveData<List<InfoItem>> = MutableLiveData()
-    val result: LiveData<List<InfoItem>> get() = _result
+) : ViewModel(){
+    private val _result: MutableLiveData<InfoItem> = MutableLiveData()
+    val result: LiveData<InfoItem> get() = _result
 
     fun startPolling(potId: Double, intervalMillis: Long) {
         viewModelScope.launch {
@@ -30,7 +30,7 @@ class InfoViewModel @Inject constructor(
     private fun getPotData(potId: Double) {
         viewModelScope.launch {
             getPotDataUseCase.invoke(potId).let {
-                _result.value = listOf(it)
+                _result.value = it
             }
         }
     }

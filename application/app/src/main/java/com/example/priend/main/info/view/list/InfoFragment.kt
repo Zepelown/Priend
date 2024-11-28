@@ -72,11 +72,13 @@ class InfoFragment : Fragment(), RecyclerViewItemClickListener {
             this.adapter = infoAdapter
         }
 
+        infoViewModel.startPolling(potId = 1.0, intervalMillis = 5000L) // 5초마다 실행
+
         infoViewModel.result.observe(viewLifecycleOwner) { newItems ->
             infoAdapter.submitItems(newItems)
         }
 
-        infoViewModel.getPotData(1.0)
+//        infoViewModel.getPotData(1.0)
 
 
         bluetoothListAdapter = ArrayAdapter(requireActivity(), android.R.layout.simple_list_item_1)
@@ -85,6 +87,8 @@ class InfoFragment : Fragment(), RecyclerViewItemClickListener {
             ContextCompat.checkSelfPermission(requireActivity(), Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
             ActivityCompat.requestPermissions(requireActivity(), arrayOf(Manifest.permission.BLUETOOTH, Manifest.permission.ACCESS_FINE_LOCATION), 1)
         }
+
+
 
         return binding.root
     }
